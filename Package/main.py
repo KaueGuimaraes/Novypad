@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 from files import *
-print('teste')
+print('Teste é o caralho seu A Cultist seu merdinha')
 
 #Definindo o tema
 theme = 'theme.txt'
