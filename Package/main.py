@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 from files import *
-
+print('teste')
 
 #Definindo o tema
 theme = 'theme.txt'
