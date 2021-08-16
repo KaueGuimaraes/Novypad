@@ -5,7 +5,7 @@ print('Teste é o caralho seu A Cultist seu merdinha')
 #Definindo o tema
 theme = 'theme.txt'
 themes = ['Dark', 'DarkAmber', 'DarkBrown1', 'DarkBrown4', 'DarkGrey', 'System Default']
-
+fonts = ['Helvetica', 'Arial']
 if not exist(theme):
     create(theme)
     write(theme, 'DarkBrown')
@@ -65,3 +65,7 @@ while True:
     #Themes
     if event in ('Themes',):
         createThemesWindowButton(themes, 'Themes')
+    #Fonts
+    if event in ('Themes',):
+        createThemesWindowButton(themes, 'Themes')
+        
