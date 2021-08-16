@@ -21,7 +21,7 @@ for c in range(0, len(themes)):
 
 
 about = '''Version 1.3.2
-Authors: LdmasterKen and Kauê Guimarães'''
+Authors: A Cultist and Kauê Guimarães'''
 update = '''-Docstring etc'''
 WIN_W = 90
 WIN_H = 25
