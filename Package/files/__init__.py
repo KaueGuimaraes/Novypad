@@ -173,6 +173,21 @@ def themeEvent(event, themes):
     return False
 
 
+def createWindowButton(list, name='Window'):
+    layout = [[]]
+    cont = 0
+    linha = 0
+    for item in list:
+        layout[linha].append(sg.Button(list[cont]))
+        cont += 1
+        if cont % 3 == 0:
+            layout.append([])
+            linha += 1
+    
+    while True:
+        event, values = sg.Window(name, layout, auto_close=False).read(close=True)
+
+
 def createThemesWindowButton(list, name='Window'):
     """
     -> Função para criar uma janela com opções de temas.
@@ -190,6 +205,6 @@ def createThemesWindowButton(list, name='Window'):
             linha += 1
     
     while True:
-        event, values = sg.Window('Themes', layout, auto_close=False).read(close=True)
+        event, values = sg.Window(name, layout, auto_close=False).read(close=True)
         if themeEvent(event, list):
             return

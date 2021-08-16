@@ -1,19 +1,14 @@
 import PySimpleGUI as sg
 from files import *
-print('Test')
+
 
 #Definindo o tema
 theme = 'theme.txt'
 themes = ['Dark', 'DarkAmber', 'DarkBrown1', 'DarkBrown4', 'DarkGrey', 'System Default']
-font = 'font.txt'
-fonts = ['Helvetica', 'Arial']
+
 if not exist(theme):
     create(theme)
     write(theme, 'DarkBrown')
-
-if not exist(font):
-    create(font)
-    write(font, 'Helvetica')
 
 temaAtual = read(theme)
 sg.ChangeLookAndFeel(temaAtual)
@@ -25,12 +20,12 @@ for c in range(0, len(themes)):
         themes[c] = themes[c] + ' (atual)'
 
 
-about = '''Version 1.3.2
+about = '''Version 1.3.3
 Authors: A Cultist and Kauê Guimarães
 --------------------------//--------------------------------
 A Cultist Instagram: @ldmasterken
 Kauê Guimarães Instagram: @kaueguimaraesk'''
-update = '''- Added Fonts and more...'''
+update = ''''''
 WIN_W = 90
 WIN_H = 25
 filename = None
@@ -46,7 +41,7 @@ menu_layout = [['File', [file_new, file_open, file_save, 'Save as', '---', 'Leav
 layout = [[sg.Menu(menu_layout)],
                 [sg.Text('> New NovyTxt <', font=('Consolas', 10), size=(WIN_W, 1), key='_INFO_')],
                 [sg.Multiline(font=('Consolas', 12), size=(WIN_W, WIN_H), key='_BODY_')]]
-window = sg.Window('NovyPad 1.3.2', layout=layout, margins=(0, 0), resizable=True, return_keyboard_events=True)
+window = sg.Window('NovyPad 1.3.3', layout=layout, margins=(0, 0), resizable=True, return_keyboard_events=True)
 window.read(1)
 window['_BODY_'].expand(True, True)
 
@@ -72,5 +67,3 @@ while True:
     #Themes
     if event in ('Themes',):
         createThemesWindowButton(themes, 'Themes')
-
-        
