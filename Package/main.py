@@ -1,5 +1,7 @@
 import PySimpleGUI as sg
 from files import *
+from themes import *
+from fonts import *
 
 
 #Definindo o tema
@@ -20,12 +22,30 @@ for c in range(0, len(themes)):
         themes[c] = themes[c] + ' (atual)'
 
 
-about = '''Version 1.3.3
+#Cópia do sistema de Tema, depois fazer uma função talvez.
+#Definindo a fonte
+font = 'font.txt'
+fonts = ['Arial', 'Consolas', 'Arbery', 'Ink Free', 'Impact', 'Palooka BB', 'GOOD PEOPLE', 'Wild Words Roman BR']
+
+if not exist(font):
+    create(font)
+    write(font, 'Consolas')
+
+fontAtual = read(font)
+
+
+#Detectando a fonte
+for c in range(0, len(fonts)):
+    if fonts[c] == fontAtual:
+        fonts[c] = fonts[c] + ' (atual)'
+
+
+about = '''Version 1.4
 Authors: A Cultist and Kauê Guimarães
 --------------------------//--------------------------------
 A Cultist Instagram: @ldmasterken
 Kauê Guimarães Instagram: @kaueguimaraesk'''
-update = ''''''
+update = '''- Fonts'''
 WIN_W = 90
 WIN_H = 25
 filename = None
@@ -40,8 +60,8 @@ menu_layout = [['File', [file_new, file_open, file_save, 'Save as', '---', 'Leav
 
 layout = [[sg.Menu(menu_layout)],
                 [sg.Text('> New NovyTxt <', font=('Consolas', 10), size=(WIN_W, 1), key='_INFO_')],
-                [sg.Multiline(font=('Consolas', 12), size=(WIN_W, WIN_H), key='_BODY_')]]
-window = sg.Window('NovyPad 1.3.3', layout=layout, margins=(0, 0), resizable=True, return_keyboard_events=True)
+                [sg.Multiline(font=(fontAtual, 12), size=(WIN_W, WIN_H), key='_BODY_')]]
+window = sg.Window('NovyPad 1.4', layout=layout, margins=(0, 0), resizable=True, return_keyboard_events=True)
 window.read(1)
 window['_BODY_'].expand(True, True)
 
@@ -67,3 +87,7 @@ while True:
     #Themes
     if event in ('Themes',):
         createThemesWindowButton(themes, 'Themes')
+    
+    #Fonts
+    if event in ('Fonts',):
+        createFontsWindowButton(fonts, 'Fonts')
